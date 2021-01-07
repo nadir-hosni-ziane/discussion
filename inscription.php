@@ -48,6 +48,12 @@ $connexion = mysqli_connect('localhost', 'root', '', 'discussion');
         <main>
             <section class = "inscription">
                 <div class = "carrerco2">
+                <?php 
+                if (isset($_SESSION['login'])) {
+                    header("Refresh: 2; url=index.php");
+                    echo "<p>Tu es déja connecté. Tu dois te déconnecter pour acceder a cette page.</p><br><p>Redirection en cours...</p>";
+                    exit();
+                } ?>
                     <h3 class = "nex">Inscription</h3>
                     <form method="post">
                     

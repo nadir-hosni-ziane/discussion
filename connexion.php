@@ -2,14 +2,6 @@
 session_start();
 $connexion = mysqli_connect('localhost', 'root', '', 'discussion');
 
-
-if (isset($_SESSION['login'])) {
-    header("Refresh: 2; url=index.php");
-    echo "<p>Tu es déja connecté. Tu dois te déconnecter pour acceder a cette page.</p><br><p>Redirection en cours...</p>";
-    exit();
-}
-
-
 ?>
 
 
@@ -54,6 +46,12 @@ if (isset($_SESSION['login'])) {
         <main>
             <section class = "connexion">
                 <div class = "carrerco">
+                <?php 
+                if (isset($_SESSION['login'])) {
+                    header("Refresh: 2; url=index.php");
+                    echo "<p>Tu es déja connecté. Tu dois te déconnecter pour acceder a cette page.</p><br><p>Redirection en cours...</p>";
+                    exit();
+                } ?>
                     <h3 class = "nex">Connexion</h3>
                     <form method="post">
                         <label for="login">ID </label>
